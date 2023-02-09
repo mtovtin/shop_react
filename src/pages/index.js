@@ -9,6 +9,20 @@ export default function Home() {
   const [isShownAdd, setIsShownAdd] = useState(false);
   const [isShownList, setIsShownList] = useState(true);
   const [products, setProducts] = useState([]);
+  const handlerAddProduct = (product) => {
+    setProducts([...products, product])
+  }
+
+  const handlerDeleteProduct = (product) => {
+    var array = [...products]; // make a separate copy of the array
+    var index = array.indexOf(product)
+    if (index !== -1) {
+      array.splice(index, 1);
+    setProducts(array)
+  }
+  }
+
+
   const handleClick = event => {
     // 👇️ toggle shown state
     setIsShownAdd(current => !current);
@@ -32,12 +46,11 @@ export default function Home() {
 			</Head>
 <div className={styles.cont}>
 <div className={styles.prList}>
-{isShownList && <ProductsList productsList={products} />}
+{isShownList && <ProductsList handlerDeleteProduct={handlerDeleteProduct} productsList={products} />}
 </div>
 			<div className={styles.main}>
 		  <Button onClick={handleClick} variant="contained">Add Product</Button>
-      {isShownAdd && <Product className={styles.main} setProducts={setProducts} />}
-		  <Button onClick={handleClick1} variant="contained">Show Products</Button>
+      {isShownAdd && <Product className={styles.main}  handlerAddProduct={handlerAddProduct} products = {products} />}
 
 			</div>
       </div>

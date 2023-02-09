@@ -5,9 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import styles from "../styles/Home.module.css";
 import Typography from '@mui/material/Typography';
 import {CardActionArea, CardActions } from '@mui/material';
+import Button from '@mui/material/Button';
 
-
-export default function ProductsList({productsList}) {
+export default function ProductsList({handlerDeleteProduct, productsList}) {
 return (
   <div className={styles.cards}>
   {productsList.map(pr=> {
@@ -48,6 +48,23 @@ return (
         </CardContent>
       </CardActionArea>
       <CardActions>
+      <Button variant="raised" component="span" onClick={() => {
+
+  
+handlerDeleteProduct(pr)
+}}>
+Delete
+  </Button>
+
+  <Button variant="raised" component="span" onClick={() => {
+
+  
+handlerEditProduct(pr)
+}}>
+Edit
+  </Button>
+
+
       </CardActions>
     </Card>
     );

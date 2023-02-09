@@ -12,13 +12,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center
+  justify-content: center;
+  
 }
 
 .prCard {
   width: 400px;
   min-width: 200px;
-  margin-right: 40px
+  margin-right: 40px;
+  margin-bottom: 40px;
 }
 
 .newProduct {
@@ -35,6 +37,7 @@
 width: 70%;
   display: flex;
   flex-direction: column;
+  
 
 
 }
@@ -91,6 +94,7 @@ width: 70%;
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  
 }
 
 .card span {
